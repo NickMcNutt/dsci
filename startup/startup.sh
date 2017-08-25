@@ -7,10 +7,6 @@ source $STARTUP/start_gui.sh
 
 source $APPS/firefox/init_firefox.sh
 
-# Create default Chrome profile
-
-source $APPS/chrome/init_chrome.sh
-
 # Trust Jupyter notebooks
 find /notebooks -name '*.ipynb' -exec jupyter trust {} +
 
