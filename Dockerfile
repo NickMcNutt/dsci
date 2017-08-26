@@ -131,16 +131,16 @@ RUN \
     apt-get update --fix-missing && \
 
 # Install software
-./misc.sh && \
-./xfce.sh && \
-./novnc.sh && \
-./tigervnc.sh && \
-./dbeaver.sh && \
-./firefox.sh && \
-./anaconda.sh && \
-./jupyter-notebook-extensions.sh && \
-./jupyter-themes.sh && \
-./julia-0.6.sh && \
+    ./misc.sh && \
+    ./novnc.sh && \
+    ./tigervnc.sh && \
+    ./xfce.sh && \
+    ./dbeaver.sh && \
+    ./firefox.sh && \
+    ./anaconda.sh && \
+    ./jupyter-notebook-extensions.sh && \
+    ./jupyter-themes.sh && \
+    ./julia-0.6.sh && \
 
 # Remove temporary files
     echo ">>> Cleaning up" && \
