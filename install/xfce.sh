@@ -5,6 +5,6 @@ apt-get install -y \
     xfce4 \
     xterm
 
-apt-get purge -y \
-    pm-utils \
-    xscreensaver*
+#apt-get purge -y \
+#    pm-utils \
+#    xscreensaver*
