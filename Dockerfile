@@ -128,26 +128,27 @@ RUN \
 
 # Update existing packages
     echo ">>> Updating existing packages" && \
-    apt-get update --fix-missing
+    apt-get update --fix-missing && \
 
 # Install software
-RUN ./misc.sh
-RUN ./novnc.sh
-RUN ./tigervnc.sh
-RUN ./xfce.sh
-#RUN ./dbeaver.sh
-#RUN ./firefox.sh
-#RUN ./anaconda.sh
-#RUN ./jupyter-notebook-extensions.sh
-#RUN ./jupyter-themes.sh
-#RUN ./julia-0.6.sh
+    ./misc.sh && \
+    ./novnc.sh && \
+    ./tigervnc.sh && \
+    ./xfce.sh && \
+    ./dbeaver.sh && \
+    ./firefox.sh && \
+    ./anaconda.sh && \
+    ./jupyter-notebook-extensions.sh && \
+    ./jupyter-themes.sh && \
+    ./julia-0.6.sh && \
 
 # Remove temporary files
-RUN \
     echo ">>> Cleaning up" && \
     apt-get clean -y && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* /var/tmp/*
+
+WORKDIR /root
 
 ###############################################################################
 ## Container initialization
