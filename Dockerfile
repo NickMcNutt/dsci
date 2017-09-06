@@ -127,6 +127,7 @@ WORKDIR /install
 RUN \
 
 # Update existing packages
+    ln -s $START/startup.sh /usr/bin/start && \
     echo ">>> Updating existing packages" && \
     apt-get update --fix-missing && \
 

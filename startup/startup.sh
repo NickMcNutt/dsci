@@ -10,4 +10,8 @@ source $APPS/firefox/init_firefox.sh
 # Trust Jupyter notebooks
 find /notebooks -name '*.ipynb' -exec jupyter trust {} +
 
-exec /bin/bash -l
+if [[ $# -eq 0 ]] ; then
+    exec /bin/bash -l
+else
+    exec "$@"
+fi
