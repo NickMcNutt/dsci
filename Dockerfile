@@ -6,7 +6,7 @@ MAINTAINER Nick McNutt <nickmcnutt2@gmail.com>
 
 ENV APPS /apps
 ENV HOME /root
-ENV STARTUP /startup
+ENV START /startup
 
 # Disable user prompts during window manager install
 ENV DEBIAN_FRONTEND noninteractive
@@ -115,8 +115,8 @@ COPY apps/xfce/xfce4 $HOME/.config/xfce4
 ## Startup
 ###############################################################################
 
-COPY startup/startup.sh $STARTUP/startup.sh
-COPY startup/start_gui.sh $STARTUP/start_gui.sh
+COPY startup/startup.sh $START/startup.sh
+COPY startup/start_gui.sh $START/start_gui.sh
 
 ###############################################################################
 ## Install software

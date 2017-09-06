@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Start GUI - noVNC, TigerVNC, Xfce4
-source $STARTUP/start_gui.sh
+source $START/start_gui.sh
 
 # Create default Firefox profile
 
