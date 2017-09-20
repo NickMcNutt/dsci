@@ -14,6 +14,9 @@ ENV DEBIAN_FRONTEND noninteractive
 # Specify a display
 ENV DISPLAY :1
 
+# Specify default terminal color settings
+ENV TERM xterm-256color
+
 COPY install/ /install/
 
 ###############################################################################
