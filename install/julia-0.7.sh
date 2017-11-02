@@ -1,5 +1,5 @@
 echo ">>> Installing Julia v0.7"
-wget --quiet https://status.julialang.org/download/linux-x86_64 -O /tmp/julia-0.7.tar.gz
+wget --quiet https://julialangnightlies-s3.julialang.org/bin/linux/x64/julia-latest-linux64.tar.gz -O /tmp/julia-0.7.tar.gz
 mkdir -p /opt/julia-0.7/
 tar -xzf /tmp/julia-0.7.tar.gz --strip-components 1 -C /opt/julia-0.7/
 rm /tmp/julia-0.7.tar.gz
