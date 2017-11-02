@@ -8,9 +8,6 @@ ENV APPS /apps
 ENV HOME /root
 ENV START /startup
 
-# Disable user prompts during window manager install
-ENV DEBIAN_FRONTEND noninteractive
-
 # Specify a display
 ENV DISPLAY :1
 
@@ -31,20 +28,6 @@ ENV PATH /opt/conda/bin:$PATH
 
 # Specify to matplotlib to not use a GUI backend
 ENV MPLBACKEND Agg
-
-###############################################################################
-## DBeaver
-###############################################################################
-
-COPY ["apps/dbeaver/DBeaver CE.desktop", "$HOME/Desktop/DBeaver CE.desktop"]
-
-###############################################################################
-## Firefox
-###############################################################################
-
-COPY apps/firefox/init_firefox.sh $APPS/firefox/init_firefox.sh
-COPY apps/firefox/firefox-prefs.js $HOME/.mozilla/firefox/default/prefs.js
-COPY apps/firefox/Firefox.desktop $HOME/Desktop/Firefox.desktop
 
 ###############################################################################
 ## Julia
@@ -73,55 +56,6 @@ EXPOSE 3000
 COPY apps/jupyter/jupyter_notebook_config.py $HOME/.jupyter/jupyter_notebook_config.py
 
 ###############################################################################
-## noVNC
-###############################################################################
-
-# noVNC server port
-ENV NO_VNC_PORT 6901
-
-EXPOSE $NO_VNC_PORT
-
-ENV NO_VNC_DIR /opt/novnc
-
-COPY apps/novnc/start_novnc.sh $APPS/novnc/start_novnc.sh
-
-###############################################################################
-## TigerVNC
-###############################################################################
-
-# VNC server port
-ENV VNC_PORT 5901
-
-EXPOSE $VNC_PORT
-
-ENV VNC_DIR /opt/tigervnc
-
-# VNC color depth
-ENV VNC_COLOR_DEPTH 32
-
-# VNC screen resolution
-ENV VNC_RESOLUTION 1280x1024
-
-# VNC password
-ENV VNC_PASSWORD vncpassword
-
-COPY apps/tigervnc/start_tigervnc.sh $APPS/tigervnc/start_tigervnc.sh
-
-###############################################################################
-## Xfce
-###############################################################################
-
-COPY apps/xfce/start_xfce.sh $APPS/xfce/start_xfce.sh
-COPY apps/xfce/xfce4 $HOME/.config/xfce4
-
-###############################################################################
-## Startup
-###############################################################################
-
-COPY startup/startup.sh $START/startup.sh
-COPY startup/start_gui.sh $START/start_gui.sh
-
-###############################################################################
 ## Install software
 ###############################################################################
 
@@ -136,14 +70,10 @@ RUN \
 
 # Install software
     ./misc.sh && \
-    ./novnc.sh && \
-    ./tigervnc.sh && \
-    ./xfce.sh && \
-    ./dbeaver.sh && \
-    ./firefox.sh && \
     ./anaconda.sh && \
     ./jupyter-themes.sh && \
     ./julia-0.6.sh && \
+    ./julia-0.7.sh && \
 
 # Remove temporary files
     echo ">>> Cleaning up" && \
