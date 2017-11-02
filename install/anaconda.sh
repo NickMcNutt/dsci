@@ -10,6 +10,7 @@ conda update -y conda
 echo ">>> Installing Anaconda"
 conda install -y -c conda-forge \
     jupyter \
+    jupyter_contrib_nbextensions \
     matplotlib \
     notebook \
     pip \

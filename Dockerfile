@@ -142,7 +142,6 @@ RUN \
     ./dbeaver.sh && \
     ./firefox.sh && \
     ./anaconda.sh && \
-    ./jupyter-notebook-extensions.sh && \
     ./jupyter-themes.sh && \
     ./julia-0.6.sh && \
 
