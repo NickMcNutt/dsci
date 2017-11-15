@@ -71,7 +71,6 @@ RUN \
 # Install software
     ./misc.sh && \
     ./anaconda.sh && \
-    ./jupyter-themes.sh && \
     ./julia-0.6.sh && \
     ./julia-0.7.sh && \
 
